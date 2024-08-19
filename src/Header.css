@@ -1,0 +1,98 @@
+/* Style for the header/navbar */
+.custom-navbar {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 10px 20px;
+}
+
+/* Style for the brand/logo */
+.brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333333;
+}
+
+/* Navbar toggler (hamburger menu) */
+.navbar-toggler {
+  border-color: #e0e0e0;
+}
+
+/* Container for navigation links */
+.nav-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+/* Style for individual navigation links */
+.nav-link {
+  color: #333333;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  padding: 5px 0;
+  border-bottom: 2px solid transparent;
+}
+
+/* Style for active navigation links */
+.active.nav-link {
+  font-weight: bold;
+  color: #007bff;
+  border-bottom: 2px solid #007bff;
+}
+
+/* Style for the badge (cart count) */
+.badge {
+  margin-left: 5px;
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+/* Dropdown styling for user profile (image and logout) */
+.dropdown .btn-light {
+  padding: 5px 10px;
+  color: #333333;
+  border: none;
+  background: none;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+/* Image inside the dropdown */
+.dropdown img {
+  border-radius: 50%;
+  margin-right: 10px;
+  width: 30px;
+  height: 30px;
+}
+
+/* Dropdown menu style */
+.dropdown-menu {
+  border: 1px solid #e0e0e0;
+}
+
+/* Dropdown item styling */
+.dropdown-item {
+  color: #333333;
+  font-size: 1rem;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for dropdown items */
+.dropdown-item:hover {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+/* Style for dropdown toggle arrow */
+#dropdown-split-basic::after {
+  color: #333333;
+}
+
+/* Consistent spacing for all buttons */
+.navbar .btn-group {
+  align-items: center;
+}
