@@ -20,7 +20,7 @@ function Header() {
     <Navbar sticky="top" expand="lg" className="custom-navbar">
       <Container>
         <Navbar.Brand href="/home" className="brand">
-          Amazon
+          E-Commerce Demo
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
