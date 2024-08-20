@@ -15,7 +15,7 @@ function Header() {
   const handleLogout = () => {
     dispatch(logout());
   };
-
+  //Our Header Component
   return (
     <Navbar sticky="top" expand="lg" className="custom-navbar">
       <Container>
