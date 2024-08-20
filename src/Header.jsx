@@ -6,6 +6,7 @@ import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import "./Header.css"; // Import the new CSS file
 import noImage from "./assest/noImage.png";
+import logo from "./assest/logo.png";
 import { logout } from "./Reducers/LoginReducer";
 
 function Header() {
@@ -19,6 +20,7 @@ function Header() {
   return (
     <Navbar sticky="top" expand="lg" className="custom-navbar">
       <Container>
+        <img src={logo} width={70}></img>
         <Navbar.Brand href="/home" className="brand">
           E-Commerce Demo
         </Navbar.Brand>
