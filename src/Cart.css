@@ -1,19 +1,71 @@
+/* Container for cart items */
 .cart-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    margin-top: 20px;
-  }
-  
-  .cart-container h3 {
-    text-align: center;
-    margin-top: 20px;
-    color: #888;
-  }
-  
-  .card-img-top {
-    height: 200px;
-    object-fit: cover;
-  }
-  
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid with flexible column width */
+  gap: 20px; /* Space between grid items */
+  justify-items: center; /* Center items horizontally within each grid cell */
+  margin-top: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Header styling within cart */
+.cart-container h3 {
+  text-align: center;
+  margin-top: 20px;
+  color: #888;
+  font-size: 1.5rem;
+}
+
+/* Styling for card image */
+.card-img-top {
+  height: 200px; /* Fixed height for the image */
+  object-fit: cover; /* Ensure the image covers the space without distortion */
+  width: 100%; /* Ensure the image spans the full width of the card */
+}
+
+/* Styling for the card */
+.card {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px; /* Fixed width to ensure consistency */
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+/* Styling for card body */
+.card-body {
+  padding: 15px; /* Padding around the text */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Space out elements within the card body */
+}
+
+.card-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-text {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.card-price {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.card-actions {
+  display: flex;
+  justify-content: space-between; /* Space out buttons within the card */
+  gap: 10px; /* Space between buttons */
+}
+
+.card-actions .btn {
+  font-size: 1rem; /* Button font size */
+}

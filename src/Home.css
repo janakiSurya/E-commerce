@@ -1,47 +1,68 @@
 .home-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    margin: 20px auto;
-    max-width: 1200px;
-  }
-  
-  .product-card {
-    flex: 1 1 calc(25% - 20px); /* Adjusted to show 4 cards per row */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    border-radius: 8px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .product-card:hover {
-    transform: scale(1.05);
-  }
-  
-  .product-card img {
-    width: 100%;
-    height: 200px; /* Adjust as needed */
-    object-fit: cover;
-  }
-  
-  .product-card .card-body {
-    flex: 1; /* Ensure it takes available space */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 15px;
-  }
-  
-  .card-buttons {
-    display: flex;
-    gap: 10px; /* Space between buttons */
-    margin-top: 10px;
-  }
-  
-  .card-buttons button {
-    flex: 1;
-  }
-  
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid layout */
+  gap: 20px; /* Space between grid items */
+  justify-content: center; /* Center the grid items horizontally */
+  margin: 20px auto;
+  max-width: 1200px;
+  padding: 0 10px; /* Add some padding on the sides */
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 450px; /* Increased height for uniformity */
+  width: 100%; /* Ensure full width */
+  background: #fff; /* Ensure a white background */
+  position: relative; /* Ensure buttons are placed correctly */
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Slightly larger shadow on hover */
+}
+
+.product-card img {
+  width: 100%;
+  height: 200px; /* Fixed height for images */
+  object-fit: cover; /* Ensure image covers the area without distortion */
+}
+
+.product-card .card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
+  height: calc(100% - 200px - 40px); /* Adjust height based on image size and button height */
+}
+
+.product-card .card-body .card-title {
+  font-size: 1.25rem; /* Adjust font size as needed */
+  margin-bottom: 0.5rem; /* Space below title */
+}
+
+.product-price {
+  font-size: 1.125rem; /* Adjust font size for price */
+  font-weight: bold; /* Make the price stand out */
+  margin-bottom: auto; /* Push price to the bottom */
+}
+
+.card-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 10px; /* Space between buttons */
+  margin-top: auto; /* Push buttons to the bottom */
+  padding: 10px;
+  border-top: 1px solid #ddd; /* Border to separate from card body */
+  background: #f9f9f9; /* Light background for buttons section */
+}
+
+.card-buttons button {
+  flex: 1;
+  white-space: nowrap; /* Prevent button text from wrapping */
+  text-align: center; /* Center button text */
+}
