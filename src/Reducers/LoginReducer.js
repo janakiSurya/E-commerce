@@ -11,9 +11,11 @@ const loginSlice = createSlice({
   reducers: {
     login: (state) => {
       state.isLoggedIn = true;
+      sessionStorage.setItem("isLoggedIn", "true");
     },
     logout: (state) => {
       state.isLoggedIn = false;
+      sessionStorage.removeItem("isLoggedIn");
     },
   },
 });

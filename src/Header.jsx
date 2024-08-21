@@ -7,9 +7,17 @@ import { useDispatch, useSelector } from "react-redux";
 import "./Header.css"; // Import the new CSS file
 import noImage from "./assest/noImage.png";
 import logo from "./assest/logo.png";
-import { logout } from "./Reducers/LoginReducer";
+import { login, logout } from "./Reducers/LoginReducer";
+import { useEffect } from "react";
 
 function Header() {
+  useEffect(() => {
+    const session = sessionStorage.getItem("isLoggedIn");
+    if (session === "true") {
+      dispatch(login());
+    }
+  }, []);
+
   const { cart } = useSelector((state) => state.cart);
   const isLoggedIn = useSelector((state) => state.login.isLoggedIn);
   const dispatch = useDispatch();

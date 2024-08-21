@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import { lazy } from "react";
+import { lazy, Suspense } from "react";
 // const OtherComponent = React.lazy(() => import('./OtherComponent'));
 const AddProduct = lazy(() => import("./AddProduct"));
 const Home = lazy(() => import("./Home"));
@@ -14,28 +14,53 @@ const Login = lazy(() => import("./Login"));
 const Router = createBrowserRouter([
   {
     path: "/",
-    element: <DefaultLayout />,
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <DefaultLayout />
+      </Suspense>
+    ),
     children: [
       {
         path: "/home",
-        element: <Home />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <Home />{" "}
+          </Suspense>
+        ),
       },
       {
         path: "/AddProduct",
-        element: <AddProduct />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <AddProduct />
+          </Suspense>
+        ),
       },
       {
         path: "/Cart",
-        element: <Cart />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            {" "}
+            <Cart />
+          </Suspense>
+        ),
       },
 
       {
         path: "/",
-        element: <Home />, // Assuming Home is your default route
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <Home />
+          </Suspense>
+        ), // Assuming Home is your default route
       },
       {
         path: "/Login",
-        element: <Login />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <Login />
+          </Suspense>
+        ),
       },
     ],
   },
