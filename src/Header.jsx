@@ -20,6 +20,10 @@ function Header() {
 
   const { cart } = useSelector((state) => state.cart);
   const isLoggedIn = useSelector((state) => state.login.isLoggedIn);
+  const totalQuantity = Object.values(cart).reduce(
+    (sum, item) => sum + item.quantity,
+    0
+  );
   const dispatch = useDispatch();
   const handleLogout = () => {
     dispatch(logout());
@@ -49,7 +53,7 @@ function Header() {
                 isActive ? "active nav-link" : "nav-link"
               }
             >
-              Cart <Badge bg="secondary">{cart.length}</Badge>
+              Cart <Badge bg="secondary">{totalQuantity}</Badge>
             </NavLink>
             <NavLink
               to="/AddProduct"
