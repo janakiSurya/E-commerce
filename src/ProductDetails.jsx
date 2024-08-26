@@ -9,6 +9,7 @@ import {
 import LoaderComponent from "./LoaderComponent";
 import { Card, Button } from "react-bootstrap";
 import "./ProductDetails.css";
+import { addProductToCart } from "./Reducers/CartReducer";
 
 function ProductDetails() {
   const dispatch = useDispatch();
@@ -31,6 +32,11 @@ function ProductDetails() {
       dispatch(clearProductDetails());
     };
   }, [dispatch, id]);
+
+  const handleCart = (product, e) => {
+    e.stopPropagation();
+    dispatch(addProductToCart(product));
+  };
 
   if (!productDetails) return <LoaderComponent />;
 
@@ -55,7 +61,12 @@ function ProductDetails() {
             <strong>Price:</strong> ${productDetails.price}
           </Card.Text>
           <div className="product-details-card-actions">
-            <Button variant="primary">Add to Cart</Button>
+            <Button
+              variant="primary"
+              onClick={(e) => handleCart(productDetails, e)}
+            >
+              Add to Cart
+            </Button>
             <Button variant="secondary">Buy Now</Button>
           </div>
         </div>
