@@ -5,9 +5,13 @@ import { baseurl } from "../constants";
 const getProductByIdAction = createAsyncThunk(
   "productDetails/getById",
   async (id) => {
-    const response = await fetch(`${baseurl}products/${id}`);
-    const product = await response.json();
-    return product;
+    try {
+      const response = await fetch(`${baseurl}products/${id}`);
+      const product = await response.json();
+      return product;
+    } catch (error) {
+      return "Api is failed";
+    }
   }
 );
 

@@ -13,7 +13,9 @@ import "./ProductDetails.css";
 function ProductDetails() {
   const dispatch = useDispatch();
   const { id } = useParams();
-  const { productDetails } = useSelector((state) => state.productDetails);
+  const productDetails = useSelector(
+    (state) => state.productDetails.productDetails
+  );
 
   useEffect(() => {
     const fetchProductDetails = async () => {
@@ -36,21 +38,25 @@ function ProductDetails() {
 
   return (
     <div className="product-details-container">
-      <Card className="card">
-        <div className="card-img">
+      <Card className="product-details-card">
+        <div className="product-details-card-img">
           <Card.Img
             variant="top"
             src={productDetails.image}
             alt={productDetails.title}
           />
         </div>
-        <div className="card-body">
-          <Card.Title>{productDetails.title}</Card.Title>
-          <Card.Text>{productDetails.description}</Card.Text>
-          <Card.Text className="card-price">
+        <div className="product-details-card-body">
+          <Card.Title className="product-details-card-title">
+            {productDetails.title}
+          </Card.Title>
+          <Card.Text className="product-details-card-text">
+            {productDetails.description}
+          </Card.Text>
+          <Card.Text className="product-details-card-price">
             <strong>Price:</strong> ${productDetails.price}
           </Card.Text>
-          <div className="card-actions">
+          <div className="product-details-card-actions">
             <Button variant="primary">Add to Cart</Button>
             <Button variant="secondary">Buy Now</Button>
           </div>
