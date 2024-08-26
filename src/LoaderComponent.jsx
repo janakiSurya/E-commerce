@@ -1,22 +1,22 @@
 import { Button, Spinner } from "react-bootstrap";
+import "./LoaderComponent.css"; // Import the CSS file
 
 const LoaderComponent = () => {
   return (
-    <div
-      className="d-flex justify-content-center align-items-center"
-      style={{ height: "60vh", width: "100%" }}
-    >
-      <Button variant="primary" style={{ width: "60%" }} disabled>
+    <div className="loader-container">
+      <Button className="loader-button" variant="primary" disabled>
         <Spinner
           as="span"
-          animation="grow"
+          animation="border" // Spinner style
           size="sm"
           role="status"
           aria-hidden="true"
+          className="loader-spinner"
         />
         Loading...
       </Button>
     </div>
   );
 };
+
 export default LoaderComponent;
