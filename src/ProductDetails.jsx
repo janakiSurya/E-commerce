@@ -13,9 +13,7 @@ import "./ProductDetails.css";
 function ProductDetails() {
   const dispatch = useDispatch();
   const { id } = useParams();
-  const productDetails = useSelector(
-    (state) => state.productDetails.productDetails
-  );
+  const { productDetails } = useSelector((state) => state.productDetails);
 
   useEffect(() => {
     const fetchProductDetails = async () => {

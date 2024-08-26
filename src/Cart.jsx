@@ -16,18 +16,30 @@ function Cart() {
     <div className="cart-container">
       {cart.length > 0 ? (
         cart.map((product) => (
-          <Card key={product.id} style={{ width: "18rem" }} className="mb-3">
-            <Card.Img variant="top" src={product.image} />
-            <Card.Body>
-              <Card.Title>{product.title}</Card.Title>
-              <Card.Text>{product.description}</Card.Text>
-              <Card.Text>Price: ${product.price}</Card.Text>
-              <Button
-                variant="danger"
-                onClick={() => handleRemoveFromCart(product)}
-              >
-                Remove from Cart
-              </Button>
+          <Card key={product.id} className="cart-card mb-3">
+            <Card.Img
+              variant="top"
+              src={product.image}
+              className="cart-card-img-top"
+            />
+            <Card.Body className="cart-card-body">
+              <Card.Title className="cart-card-title">
+                {product.title}
+              </Card.Title>
+              <Card.Text className="cart-card-text">
+                {product.description}
+              </Card.Text>
+              <Card.Text className="cart-card-price">
+                Price: ${product.price}
+              </Card.Text>
+              <div className="cart-card-actions">
+                <Button
+                  variant="danger"
+                  onClick={() => handleRemoveFromCart(product)}
+                >
+                  Remove from Cart
+                </Button>
+              </div>
             </Card.Body>
           </Card>
         ))
