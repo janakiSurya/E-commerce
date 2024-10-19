@@ -3,11 +3,14 @@ import React, { useState } from "react";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { login } from "./Reducers/LoginReducer";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -15,11 +18,17 @@ function Login() {
       alert("Please fill in both fields");
       return;
     }
-
-    dispatch(login());
-
-    console.log("Login attempted with:", { email, password });
-    // Here you would typically send a request to your server
+    axios
+      .post("http://localhost:5001/login", { email, password })
+      .then((response) => {
+        console.log(response.data.message); // Success message from the server
+        dispatch(login());
+        navigate("/home"); // Update Redux state to logged in
+      })
+      .catch((error) => {
+        console.error(error.response.data.message); // Show error message
+        alert(error.response.data.message); // Alert the user
+      });
   };
 
   return (
