@@ -7,7 +7,7 @@ const Cart = lazy(() => import("./Cart"));
 const DefaultLayout = lazy(() => import("./DefaultLayout"));
 const Login = lazy(() => import("./Login"));
 const ProductDetails = lazy(() => import("./ProductDetails")); // Lazy load ProductDetails
-
+const Registration = lazy(() => import("./Registration"));
 const Router = createBrowserRouter([
   {
     path: "/",
@@ -62,6 +62,14 @@ const Router = createBrowserRouter([
         element: (
           <Suspense fallback={<div>Loading...</div>}>
             <Login />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/Registration",
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <Registration />
           </Suspense>
         ),
       },
