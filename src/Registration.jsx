@@ -18,7 +18,7 @@ function Registration() {
     }
 
     axios
-      .post("https://e-commerce-be-five.vercel.app/register", {
+      .post(process.env.REACT_APP_REGISTER_URL, {
         email,
         password,
       }) // Update the URL as necessary

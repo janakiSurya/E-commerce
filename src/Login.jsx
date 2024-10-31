@@ -21,7 +21,7 @@ function Login() {
     }
 
     axios
-      .post("https://e-commerce-be-five.vercel.app/login", {
+      .post(process.env.REACT_APP_LOGIN_URL, {
         email,
         password,
       })
