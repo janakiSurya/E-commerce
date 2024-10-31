@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import logo from "./assest/logo.PNG"; // Import your logo
+import logo from "./assest/logo.png"; // Import your logo
 import "./Registration.css"; // Import the CSS file for styles
 
 function Registration() {

@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import "./Header.css"; // Import the CSS file
 import noImage from "./assest/noImage.png";
-import logo from "./assest/logo.PNG";
+import logo from "./assest/logo.png";
 import { login, logout } from "./Reducers/LoginReducer";
 import { useEffect, useState } from "react";
 

@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { login } from "./Reducers/LoginReducer";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import logo from "./assest/logo.PNG"; // Import your logo
+import logo from "./assest/logo.png"; // Import your logo
 import "./Login.css"; // Import custom CSS for additional styles
 
 function Login() {
