@@ -1,13 +1,15 @@
 import { createBrowserRouter } from "react-router-dom";
 import { lazy, Suspense } from "react";
+import ProtectedRoute from "./ProtectedRoute"; // Import the ProtectedRoute component
 
 const AddProduct = lazy(() => import("./AddProduct"));
 const Home = lazy(() => import("./Home"));
 const Cart = lazy(() => import("./Cart"));
 const DefaultLayout = lazy(() => import("./DefaultLayout"));
 const Login = lazy(() => import("./Login"));
-const ProductDetails = lazy(() => import("./ProductDetails")); // Lazy load ProductDetails
+const ProductDetails = lazy(() => import("./ProductDetails"));
 const Registration = lazy(() => import("./Registration"));
+
 const Router = createBrowserRouter([
   {
     path: "/",
@@ -18,10 +20,18 @@ const Router = createBrowserRouter([
     ),
     children: [
       {
+        path: "/Login",
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <Login />
+          </Suspense>
+        ),
+      },
+      {
         path: "/",
         element: (
           <Suspense fallback={<div>Loading...</div>}>
-            <Home />
+            <ProtectedRoute element={<Home />} />
           </Suspense>
         ),
       },
@@ -29,15 +39,15 @@ const Router = createBrowserRouter([
         path: "/home",
         element: (
           <Suspense fallback={<div>Loading...</div>}>
-            <Home />
+            <ProtectedRoute element={<Home />} />
           </Suspense>
         ),
       },
       {
-        path: "/product/:id", // Product details page route
+        path: "/product/:id",
         element: (
           <Suspense fallback={<div>Loading...</div>}>
-            <ProductDetails />
+            <ProtectedRoute element={<ProductDetails />} />
           </Suspense>
         ),
       },
@@ -45,7 +55,7 @@ const Router = createBrowserRouter([
         path: "/AddProduct",
         element: (
           <Suspense fallback={<div>Loading...</div>}>
-            <AddProduct />
+            <ProtectedRoute element={<AddProduct />} />
           </Suspense>
         ),
       },
@@ -53,15 +63,7 @@ const Router = createBrowserRouter([
         path: "/Cart",
         element: (
           <Suspense fallback={<div>Loading...</div>}>
-            <Cart />
-          </Suspense>
-        ),
-      },
-      {
-        path: "/Login",
-        element: (
-          <Suspense fallback={<div>Loading...</div>}>
-            <Login />
+            <ProtectedRoute element={<Cart />} />
           </Suspense>
         ),
       },

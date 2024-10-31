@@ -4,6 +4,8 @@ import { useDispatch } from "react-redux";
 import { login } from "./Reducers/LoginReducer";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import logo from "./assest/logo.PNG"; // Import your logo
+import "./Login.css"; // Import custom CSS for additional styles
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -42,43 +44,56 @@ function Login() {
   };
 
   return (
-    <Container>
-      <Row className="justify-content-md-center mt-5">
-        <Col xs={12} md={6}>
-          <h2 className="text-center mb-4">Login</h2>
-          <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Email address</Form.Label>
-              <Form.Control
-                type="email"
-                placeholder="Enter email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </Form.Group>
+    <Container fluid className="login-container">
+      <Row className="h-100 justify-content-center align-items-center">
+        <Col
+          md={6}
+          className="d-flex flex-column justify-content-center align-items-center text-center"
+        >
+          <img src={logo} alt="Company Logo" className="logo" />
+          <h2 className="mt-3">Welcome to VerVain</h2>
+          <p>"Unlock Your Shopping Spree: VerVain Has It All!"</p>
+        </Col>
+        <Col
+          md={6}
+          className="d-flex justify-content-center align-items-center"
+        >
+          <div className="login-form">
+            <h2 className="text-center mb-4">Login</h2>
+            <Form onSubmit={handleSubmit}>
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Email address</Form.Label>
+                <Form.Control
+                  type="email"
+                  placeholder="Enter email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>Password</Form.Label>
-              <Form.Control
-                type="password"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </Form.Group>
+              <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </Form.Group>
 
-            <Button variant="primary" type="submit" className="w-100">
-              Login
-            </Button>
-          </Form>
-          <div className="text-center mt-3">
-            <span>Not a user? </span>
-            <Button
-              variant="link"
-              onClick={() => navigate("/Registration")} // Assuming /register is the route for registration
-            >
-              Register here
-            </Button>
+              <Button variant="primary" type="submit" className="w-100">
+                Login
+              </Button>
+            </Form>
+            <div className="text-center mt-3">
+              <span>Not a user? </span>
+              <Button
+                variant="link"
+                onClick={() => navigate("/Registration")} // Assuming /register is the route for registration
+              >
+                Register here
+              </Button>
+            </div>
           </div>
         </Col>
       </Row>

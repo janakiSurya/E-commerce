@@ -1,8 +1,24 @@
+/* Global styles to remove default margin and padding */
+body,
+html {
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  width: 100%; /* Ensure full width */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
 /* Style for the header/navbar */
 .custom-navbar {
   background-color: #ffffff;
   border-bottom: 1px solid #e0e0e0;
   padding: 10px 20px;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+/* Change background color and add shadow on scroll */
+.scrolled-navbar {
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Style for the brand/logo */
@@ -12,65 +28,46 @@
   color: #333333;
 }
 
-/* Navbar toggler (hamburger menu) */
-.navbar-toggler {
-  border-color: #e0e0e0;
-}
-
-/* Container for navigation links */
-.nav-links {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-}
-
-/* Style for individual navigation links */
+/* Navbar link styles */
 .nav-link {
   color: #333333;
   font-size: 1rem;
   text-decoration: none;
-  transition: color 0.3s ease, border-bottom 0.3s ease;
-  padding: 5px 0;
-  border-bottom: 2px solid transparent;
-}
-
-/* Style for active navigation links */
-.active.nav-link {
-  font-weight: bold;
-  color: #007bff;
-  border-bottom: 2px solid #007bff;
-}
-
-/* Style for the badge (cart count) */
-.badge {
-  margin-left: 5px;
-  background-color: #007bff;
-  color: #ffffff;
-}
-
-/* Dropdown styling for user profile (image and logout) */
-.dropdown .btn-light {
+  transition: color 0.3s ease, transform 0.2s ease;
   padding: 5px 10px;
-  color: #333333;
-  border: none;
-  background: none;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
-  display: flex;
-  align-items: center;
 }
 
-/* Image inside the dropdown */
-.dropdown img {
-  border-radius: 50%;
-  margin-right: 10px;
-  width: 30px;
-  height: 30px;
+.nav-link:hover {
+  color: #007bff;
+  transform: scale(1.05); /* Scale effect on hover */
 }
 
-/* Dropdown menu style */
+/* Profile button styles */
+.profile-button {
+  transition: transform 0.2s ease;
+}
+
+.profile-button:hover {
+  transform: scale(1.1); /* Scale effect on hover */
+}
+
+/* Dropdown image styles */
+.dropdown-img {
+  transition: transform 0.2s ease;
+}
+
+.dropdown-img:hover {
+  transform: scale(1.1); /* Scale effect on hover */
+}
+
+/* Dropdown menu styles */
 .dropdown-menu {
-  border: 1px solid #e0e0e0;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.dropdown-menu.show {
+  opacity: 1; /* Fade in effect */
 }
 
 /* Dropdown item styling */
@@ -78,21 +75,19 @@
   color: #333333;
   font-size: 1rem;
   padding: 10px 20px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 /* Hover effect for dropdown items */
 .dropdown-item:hover {
   background-color: #007bff;
   color: #ffffff;
+  transform: scale(1.05); /* Scale effect on hover */
 }
 
-/* Style for dropdown toggle arrow */
-#dropdown-split-basic::after {
-  color: #333333;
-}
-
-/* Consistent spacing for all buttons */
-.navbar .btn-group {
-  align-items: center;
+/* Style for active navigation links */
+.active.nav-link {
+  font-weight: bold;
+  color: #007bff;
+  border-bottom: 2px solid #007bff;
 }
